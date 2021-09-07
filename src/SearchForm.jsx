@@ -39,7 +39,7 @@ const SearchForm = () => {
 			{locations &&
 				locations.map((location) => (
 					<div>
-						<Link>{location.name}</Link>
+						<Link to={`${location.name}/${location.id}`}>{location.name}</Link>
 					</div>
 				))}
 		</div>
