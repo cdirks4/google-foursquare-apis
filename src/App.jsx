@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { getLocations } from './ApiCalls';
 import './App.css';
-import SearchForm from './SearchForm';
+import Header from './Header/Header';
+import SearchForm from './Frontpage/SearchForm';
 import VenueDetails from './VenueDetails/VenueDetails';
 
 const App = () => {
@@ -11,7 +12,8 @@ const App = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className='app-div'>
+			<Header />
 			<Switch>
 				<Route exact path='/'>
 					<SearchForm />

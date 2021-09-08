@@ -4,13 +4,19 @@ const VenueMenu = ({ menu }) => {
 	const [showing, setShowing] = useState(false);
 	return (
 		<div>
-			<button
-				onClick={() => {
-					setShowing(true);
-				}}>
-				click to view menu
-			</button>
-			{showing && <a href={`${menu.url}`}>Menu</a>}
+			{!showing && (
+				<button
+					onClick={() => {
+						setShowing(true);
+					}}>
+					click to view menu
+				</button>
+			)}
+			{showing && (
+				<a href={`${menu.url}`} target='_blank' rel='noreferrer'>
+					Menu
+				</a>
+			)}
 		</div>
 	);
 };

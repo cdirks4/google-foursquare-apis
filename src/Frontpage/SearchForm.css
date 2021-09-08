@@ -1,0 +1,40 @@
+.main-div {
+	display: grid;
+	background-color: red;
+	height: 100vh;
+	width: 100vw;
+	grid-template-rows: 2.5fr 2fr 6fr;
+	grid-template-columns: 3fr 2fr 6fr;
+}
+.form-div {
+	display: grid;
+	grid-column: 1 / span 3;
+	grid-row: 1;
+	grid-template-columns: 4fr 2.25fr 1fr 0.75fr;
+}
+.search-form {
+	grid-template-columns: 3fr 2.25fr 1fr 0.75fr;
+	display: grid;
+	grid-column: 1 / span 4;
+}
+.company-input {
+	grid-column: 1;
+	height: 41px;
+	border: none;
+}
+.location-input {
+	border: none;
+	grid-column: 2;
+	height: 41px;
+}
+.radius-select {
+	border: none;
+	grid-column: 3;
+	height: 43px;
+}
+.search-submit {
+	border: none;
+	grid-column: 4;
+	height: 43px;
+	min-width: 20px;
+}

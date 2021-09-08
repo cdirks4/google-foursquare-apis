@@ -53,7 +53,7 @@ const VenueDetails = () => {
 	const [venue, setVenue] = useState(null);
 	const params = useParams();
 	useEffect(() => {
-		// findVenueDetails(params.id).then((res) => setVenue(res.response.venue));
+		findVenueDetails(params.id).then((res) => setVenue(res.response.venue));
 	}, []);
 	return (
 		venue && (

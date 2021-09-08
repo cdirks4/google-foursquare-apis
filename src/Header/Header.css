@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.header-div {
+	background-color: black;
+}
+header {
+	font-family: 'Lobster', cursive;
+	color: red;
+	font-size: 8vh;
+	height: 14vh;
+	text-shadow: rgb(255, 255, 255);
+}
+a {
+	text-decoration: none;
+}
