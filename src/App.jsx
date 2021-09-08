@@ -5,11 +5,13 @@ import './App.css';
 import Header from './Header/Header';
 import SearchForm from './Frontpage/SearchForm';
 import VenueDetails from './VenueDetails/VenueDetails';
+import Footer from './Footer';
 
 const App = () => {
 	useEffect(() => {
 		// getLocations().then((res) => console.log(res.response));
 	}, []);
+	let map;
 
 	return (
 		<div className='app-div'>
@@ -24,6 +26,7 @@ const App = () => {
 					<VenueDetails />
 				</Route>
 			</Switch>
+			<Footer />
 		</div>
 	);
 };

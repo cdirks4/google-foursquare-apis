@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getLocations } from '../ApiCalls';
-import Header from '../Header/Header';
 import Results from './Results';
 import './SearchForm.css';
+
+import SlideShow from './SlideShow';
 const SearchForm = () => {
 	const [geoLocation, setGeolocation] = useState(null);
 	const [locations, setLocations] = useState(null);
@@ -63,7 +64,7 @@ const SearchForm = () => {
 					</button>
 				</form>
 			</div>
-			{locations ? <Results locations={locations} /> : <div></div>}
+			{locations ? <Results locations={locations} /> : <SlideShow />}
 		</div>
 	);
 };

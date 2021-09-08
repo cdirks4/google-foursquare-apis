@@ -1,0 +1,27 @@
+.img {
+	grid-row: 1;
+	grid-column: 2;
+	height: 350px;
+}
+.details-div {
+	z-index: 1;
+	display: grid;
+	grid-template-rows: 3fr 0.25fr 2fr;
+	grid-template-columns: 3fr 3fr 3fr;
+	background-color: white;
+}
+.likes-div {
+	display: flex;
+	grid-row: 2;
+}
+.likes {
+	height: 25px;
+}
+.categories {
+	grid-column: 2;
+	grid-row: 1;
+}
+.venue-description {
+	grid-column: 2;
+	grid-row: 2;
+}
