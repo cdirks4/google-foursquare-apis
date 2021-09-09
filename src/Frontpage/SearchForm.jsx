@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import Map from '../Map/Map';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getLocations } from '../ApiCalls';
 import Results from './Results';
 import './SearchForm.css';
-
-import SlideShow from './SlideShow';
+import { getLocations } from '../ApiCalls';
+import LocationMarker from '../Map/LocationMarker';
 const SearchForm = () => {
 	const [geoLocation, setGeolocation] = useState(null);
+	const [markers, setMarkers] = useState(null);
 	const [locations, setLocations] = useState(null);
 	const [params, setParams] = useState({
-		near: null,
-		radius: null,
-		query: null,
+		near: '',
+		radius: 5,
+		query: '',
 	});
 	const getUserGeolocationDetails = () => {
 		return fetch(
@@ -20,7 +21,9 @@ const SearchForm = () => {
 			.then((response) => response.json())
 			.then((data) => setGeolocation(data));
 	};
-	getUserGeolocationDetails();
+	useEffect(() => {
+		getUserGeolocationDetails();
+	}, []);
 	const handleChange = (e) => {
 		setParams({ ...params, [e.target.id]: e.target.value });
 	};
@@ -29,6 +32,7 @@ const SearchForm = () => {
 		const res = await getLocations(params);
 		setLocations(res.response.venues);
 	};
+
 	return (
 		<div className='main-div'>
 			<div className='form-div'>
@@ -63,8 +67,14 @@ const SearchForm = () => {
 						GO
 					</button>
 				</form>
+				{geoLocation && (
+					<Map
+						geoLocation={geoLocation}
+						center={{ lat: geoLocation.latitude, lng: geoLocation.longitude }}
+					/>
+				)}
 			</div>
-			{locations ? <Results locations={locations} /> : <SlideShow />}
+			{locations && <Results locations={locations} />}
 		</div>
 	);
 };

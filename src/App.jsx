@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { getLocations } from './ApiCalls';
 import './App.css';
 import Header from './Header/Header';
 import SearchForm from './Frontpage/SearchForm';
 import VenueDetails from './VenueDetails/VenueDetails';
 import Footer from './Footer';
-
+import Map from './Map/Map';
 const App = () => {
-	useEffect(() => {
-		// getLocations().then((res) => console.log(res.response));
-	}, []);
-	let map;
+	useEffect(() => {}, []);
 
 	return (
 		<div className='app-div'>
