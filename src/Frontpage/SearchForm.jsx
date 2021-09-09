@@ -40,7 +40,7 @@ const SearchForm = () => {
 					<input
 						className='company-input'
 						id='query'
-						placeholder='Company Name'
+						placeholder='Keywords (burgers,sports,gyms,etc.)'
 						onChange={handleChange}></input>
 					<input
 						className='location-input'

@@ -19,13 +19,13 @@
 }
 .company-input {
 	grid-column: 1;
-	height: 41px;
+	height: 43px;
 	border: none;
 }
 .location-input {
 	border: none;
 	grid-column: 2;
-	height: 41px;
+	height: 43px;
 }
 .radius-select {
 	border: none;
