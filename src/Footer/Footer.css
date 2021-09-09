@@ -1,0 +1,11 @@
+.footer {
+	height: 75px;
+	display: flex;
+	justify-content: space-evenly;
+}
+.github {
+	text-decoration: none;
+}
+a {
+	text-decoration: none;
+}

@@ -6,6 +6,7 @@ import './Map.css';
 
 const Map = ({ locations, center, zoom }) => {
 	const [locationInfo, setLocationInfo] = useState(null);
+
 	const markers =
 		locations &&
 		locations.map((location) => (
@@ -16,10 +17,13 @@ const Map = ({ locations, center, zoom }) => {
 					setLocationInfo({
 						name: location.name,
 						address: location.location.formattedAddress,
+						id: location.id,
+						price: '',
 					})
 				}
 			/>
 		));
+
 	return (
 		<div className='map'>
 			<GoogleMapReact
@@ -36,10 +40,6 @@ const Map = ({ locations, center, zoom }) => {
 	);
 };
 Map.defaultProps = {
-	center: {
-		lat: 42.3265,
-		lng: -122.8756,
-	},
 	zoom: 14,
 };
 

@@ -3,34 +3,47 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Results from './Results';
 import './SearchForm.css';
-import { getLocations } from '../ApiCalls';
+import { getLocations, getLocationsByLongLat } from '../ApiCalls';
 import LocationMarker from '../Map/LocationMarker';
-const SearchForm = () => {
-	const [geoLocation, setGeolocation] = useState(null);
+const SearchForm = ({ locations, setLocations }) => {
+	// const [geoLocation, setGeolocation] = useState(null);
 	const [markers, setMarkers] = useState(null);
-	const [locations, setLocations] = useState(null);
+	const [error, setError] = useState(false);
 	const [params, setParams] = useState({
 		near: '',
 		radius: 5,
 		query: '',
 	});
-	const getUserGeolocationDetails = () => {
-		return fetch(
-			'https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572'
-		)
-			.then((response) => response.json())
-			.then((data) => setGeolocation(data));
-	};
-	useEffect(() => {
-		getUserGeolocationDetails();
-	}, []);
+	// const getUserGeolocationDetails = () => {
+	// 	return fetch(
+	// 		'https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572'
+	// 	)
+	// 		.then((response) => response.json())
+	// 		.then((data) => setGeolocation(data));
+	// };
+	// useEffect(() => {
+	// 	if ('geolocation' in navigator) {
+	// 		navigator.geolocation.getCurrentPosition(function (position) {
+	// 			setGeolocation({
+	// 				longitude: position.coords.longitude,
+	// 				latitude: position.coords.latitude,
+	// 			});
+	// 		});
+	// 	} else {
+	// 		alert('please enable location');
+	// 	}
+	// }, []);
+
 	const handleChange = (e) => {
 		setParams({ ...params, [e.target.id]: e.target.value });
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const res = await getLocations(params);
-		setLocations(res.response.venues);
+		try {
+			// setGeolocation(null);
+			const res = await getLocations(params);
+			setLocations(res.response.venues);
+		} catch (err) {}
 	};
 
 	return (
@@ -46,7 +59,7 @@ const SearchForm = () => {
 						className='location-input'
 						id='near'
 						required='true'
-						placeholder='Location'
+						placeholder='Location (Boston, MA)'
 						onChange={handleChange}></input>
 					<select
 						className='radius-select'
@@ -70,15 +83,15 @@ const SearchForm = () => {
 				{locations && (
 					<Map
 						locations={locations && locations}
-						geoLocation={geoLocation}
-						center={{
-							lat: locations[0].location.lat,
-							lng: locations[0].location.lng,
-						}}
+						center={
+							locations && {
+								lat: locations[0].location.lat,
+								lng: locations[0].location.lng,
+							}
+						}
 					/>
 				)}
 			</div>
-			{locations && <Results locations={locations} />}
 		</div>
 	);
 };

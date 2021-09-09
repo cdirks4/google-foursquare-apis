@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const LocationInfoBox = ({ locations }) => {
 	return (
 		<div className='location-details'>
@@ -10,8 +10,13 @@ const LocationInfoBox = ({ locations }) => {
 				</li>
 				<li>
 					Address:{' '}
-					<strong>{`${locations.address[0]} ${locations.address[1]} ${locations.address[2]}`}</strong>
+					<strong>{`${locations.address[0]} ${locations.address[1]} ${
+						locations.address[2] && locations.address[2]
+					}`}</strong>
 				</li>
+				<Link to={`${locations.name}/${locations.id}`}>
+					<li>More Details</li>
+				</Link>
 			</ul>
 		</div>
 	);

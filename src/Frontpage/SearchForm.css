@@ -1,7 +1,7 @@
 .main-div {
 	display: grid;
 	background-color: rgb(136, 37, 37);
-	height: 100vh;
+	height: 75vh;
 	width: 100vw;
 	grid-template-rows: 2.5fr 2fr 6fr;
 	grid-template-columns: 3fr 2fr 6fr;
