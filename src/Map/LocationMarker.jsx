@@ -1,10 +1,9 @@
-import { Icon } from '@iconify/react';
 import React from 'react';
-
+import { MDBIcon } from 'mdbreact';
 const LocationMarker = ({ lat, lng, handleClick }) => {
 	return (
 		<div className='location-marker' onClick={handleClick}>
-			<Icon icon='bytesize:location' width='32' height='32' />
+			<MDBIcon icon='map-marker-alt' size='3x' />
 		</div>
 	);
 };

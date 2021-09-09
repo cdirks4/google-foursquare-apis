@@ -67,11 +67,14 @@ const SearchForm = () => {
 						GO
 					</button>
 				</form>
-				{geoLocation && (
+				{locations && (
 					<Map
 						locations={locations && locations}
 						geoLocation={geoLocation}
-						center={{ lat: geoLocation.latitude, lng: geoLocation.longitude }}
+						center={{
+							lat: locations[0].location.lat,
+							lng: locations[0].location.lng,
+						}}
 					/>
 				)}
 			</div>
