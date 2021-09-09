@@ -6,3 +6,23 @@ body {
 	height: 100vh;
 	width: 100vw;
 }
+.location-details {
+	position: absolute;
+	top: 50px;
+	bottom: 50px;
+	width: 400px;
+	min-height: 200px;
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 10px;
+	font-size: 18px;
+	color: white;
+}
+
+.location-details ul {
+	list-style-type: none;
+	padding: 0;
+}
+.location-details li {
+	padding: 0;
+}

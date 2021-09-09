@@ -69,6 +69,7 @@ const SearchForm = () => {
 				</form>
 				{geoLocation && (
 					<Map
+						locations={locations && locations}
 						geoLocation={geoLocation}
 						center={{ lat: geoLocation.latitude, lng: geoLocation.longitude }}
 					/>
