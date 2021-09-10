@@ -9,28 +9,32 @@ import './VenueDetails.css';
 import { MDBIcon } from 'mdbreact';
 import Map from '../Map/Map';
 const VenueDetails = () => {
-	const [venue, setVenue] = useState();
+	const [venue, setVenue] = useState(null);
 	const params = useParams();
 	useEffect(() => {
-		findVenueDetails(params.id).then((res) => setVenue(res.response.venue));
+		findVenueDetails(params.id).then((res) => setVenue(res.response));
 	}, []);
 	return venue ? (
 		<div className='details-div'>
-			{venue.bestPhoto ? (
-				<VenueImage image={venue.bestPhoto} />
+			{venue.venue.bestPhoto ? (
+				<VenueImage image={venue.venue.bestPhoto} />
 			) : (
 				<h1>No photos available, Sorry for the inconvinence</h1>
 			)}
 			<hr />
 			<div className='small-div'>
 				<MDBIcon icon='thumbs-up' className='likes-logo' size='2x' />
-				{venue.likes.count && <p className='likes'>{venue.likes.count}</p>}
-				<p className='price'>Price: {venue.price.currency}</p>
-				<p className='rating'>Rating: {venue.rating}</p>
-				<p>{venue.defaultHours}</p>
+				{venue?.likes?.count && (
+					<p className='likes'>{venue.venue.likes?.count}</p>
+				)}
+				<p className='price'>Price: {venue.venue.price?.currency}</p>
+				<p className='rating'>Rating: {venue.venue.rating}</p>
+				<p>{venue?.defaultHours}</p>
 			</div>
-			{venue.hasMenu && <VenueMenu menu={venue.menu} />}
-			{venue.categories && <VenueCategories categories={venue.categories} />}
+			{venue.venue?.hasMenu && <VenueMenu menu={venue.venue.menu} />}
+			{venue.venue?.categories && (
+				<VenueCategories categories={venue.venue.categories} />
+			)}
 			{venue.description ? (
 				<p className='venue-description'>{venue.description}</p>
 			) : (
@@ -38,6 +42,7 @@ const VenueDetails = () => {
 					{venue.name} did not provide a description
 				</p>
 			)}
+			<h1>{venue.venue.name}</h1>
 		</div>
 	) : (
 		<div> loading</div>
