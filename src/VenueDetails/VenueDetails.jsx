@@ -43,6 +43,7 @@ const VenueDetails = () => {
 				</p>
 			)}
 			<h1>{venue.venue.name}</h1>
+			<h1>Still neeeds to be worked on</h1>
 		</div>
 	) : (
 		<div> loading</div>
