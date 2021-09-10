@@ -14,9 +14,9 @@ const LocationInfoBox = ({ locations }) => {
 						locations.address[2] && locations.address[2]
 					}`}</strong>
 				</li>
-				<Link to={`${locations.name}/${locations.id}`}>
+				{/* <Link to={`${locations.name}/${locations.id}`}>
 					<li>More Details</li>
-				</Link>
+				</Link> */}
 			</ul>
 		</div>
 	);

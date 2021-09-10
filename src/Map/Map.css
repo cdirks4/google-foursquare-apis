@@ -9,8 +9,8 @@ body {
 .location-details {
 	position: absolute;
 	top: 150px;
-	right: 50px;
-	width: 400px;
+	left: 10px;
+	width: 350px;
 	height: 200px;
 	padding: 20px;
 	background-color: rgba(0, 0, 0, 0.6);
